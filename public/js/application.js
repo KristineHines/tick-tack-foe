@@ -1,3 +1,9 @@
+var changeState = function(id) {
+  $("#"+id).css('background-color', 'red');
+};
+
+
+
 $(document).ready(function () {
 
   $('a#sign-out').on("click", function (e) {
@@ -6,4 +12,19 @@ $(document).ready(function () {
     request.done(function () { window.location = "/"; });
   });
 
+$("li").on('click', function(){
+  changeState(this.id);
+  // clickBox(this.id);
 });
+
+
+
+
+
+});
+
+
+// disablePlayer
+
+
+

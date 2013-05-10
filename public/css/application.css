@@ -73,3 +73,23 @@ form.quirks {
   margin-right: 20px;
   width: 200px;
 }
+
+
+#color_me li{
+  display:block;
+  width:30%;
+  float:left;
+  height:200px;
+  border:solid black 2px;
+  margin:2px;
+}
+
+#get_color{
+  border-radius: 10px;
+  border: red solid 2px;
+  background: red;
+  color:white;
+  margin:10px auto;
+  display:inline-block;
+  padding:5px;
+ }
