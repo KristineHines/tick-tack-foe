@@ -2,10 +2,10 @@ class User < ActiveRecord::Base
 
   scope :logged_in, where(:logged_in => true)
   
-  attr_reader :entered_password
+  # attr_reader :entered_password
 
   validates :name, :length => { :minimum => 3, :message => "must be at least 3 characters, fool!" }
-  validates :entered_password, :length => { :minimum => 6 }
+  #validates :entered_password, :length => { :minimum => 6 }
   validates :email, :uniqueness => true, :format => /.+@.+\..+/ # imperfect, but okay
 
   include BCrypt
