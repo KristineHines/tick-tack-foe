@@ -1,5 +1,10 @@
-var changeState = function(id) {
+var changeState = function(id) { 
+
+ if (currentPlayer === currentPlayer1) {
   $("#"+id).css('background-color', 'red');
+} else {
+  $("#"+id).css('background-color', 'blue');
+}
 };
 
 
