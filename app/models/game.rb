@@ -7,6 +7,10 @@ class Game < ActiveRecord::Base
     User.find(self.player1_id)
   end
 
+  def player2
+    User.find(self.player2_id)
+  end
+
 
   def add_x
   end

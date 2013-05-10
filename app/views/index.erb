@@ -5,7 +5,7 @@
   <h1>Open games</h1>
   <ul>
   <% @games.each do |game| %>
-    <li><a href="/game/<%= game.id %>">   <%= game.id %></a> Created by: <%= game.player1.name %> </li>
+    <li><a href="/game/join/<%= game.id %>">Join <%= game.id %></a> Created by: <%= game.player1.name %> </li>
   <% end %>
 </ul>
 
