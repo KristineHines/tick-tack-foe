@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+
+  scope :logged_in, where(:logged_in => true)
+  
   attr_reader :entered_password
 
   validates :name, :length => { :minimum => 3, :message => "must be at least 3 characters, fool!" }
