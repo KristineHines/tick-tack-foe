@@ -5,6 +5,7 @@ get '/' do
   erb :index
 end
 
+
 #----------- SESSIONS -----------
 
 get '/sessions/new' do

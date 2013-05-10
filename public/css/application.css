@@ -93,3 +93,7 @@ form.quirks {
   display:inline-block;
   padding:5px;
  }
+
+ header {
+  text-align: center;
+ }

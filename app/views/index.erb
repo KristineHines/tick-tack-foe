@@ -1,13 +1,9 @@
 <div class="container">
 
-  <% if current_user %>
-  <a href="/board">Play Game<a>
-  <% end %>
-  
   <h1>Users waiting to play</h1>
   <ul>
   <% @users.each do |user| %>
-    <li><%= user.name %></li>
+    <li><a href="/board/<%= user.id %>"><%= user.name %></a></li>
   <% end %>
 </ul>
 
