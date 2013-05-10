@@ -1,6 +1,6 @@
 get '/' do
   # render home page
-  @users = User.logged_in
+  @games = Game.open_games
 
   erb :index
 end

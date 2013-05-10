@@ -1,9 +1,11 @@
 <div class="container">
-
-  <h1>Users waiting to play</h1>
+  <% if current_user %>
+    <a href="/game/create">Start a game</a>
+  <% end %>
+  <h1>Open games</h1>
   <ul>
-  <% @users.each do |user| %>
-    <li><a href="/board/<%= user.id %>"><%= user.name %></a></li>
+  <% @games.each do |game| %>
+    <li><a href="/game/<%= game.id %>">   <%= game.id %></a> Created by: <%= game.player1.name %> </li>
   <% end %>
 </ul>
 
