@@ -1,6 +1,6 @@
 get '/' do
   # render home page
-  @users = User.all
+  @users = User.logged_in
 
   erb :index
 end
