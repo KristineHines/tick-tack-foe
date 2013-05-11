@@ -1,8 +1,7 @@
 class Game < ActiveRecord::Base
-
  scope :open_games, where(:player2_id => nil)
- # scope :player1, User.find(self.player1_id)
 
+  
   def player1
     User.find(self.player1_id)
   end

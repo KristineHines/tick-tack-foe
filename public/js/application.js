@@ -18,6 +18,17 @@ $(document).ready(function () {
   });
 
 $("li").on('click', function(){
+  var cellId = this.id;
+  console.log(cellId)
+  console.log(currentPlayer)
+  $.ajax({
+    type: "post",
+    url: "/game/"+gameId+"/update",
+    data: {cell_to_change: cellId, player: currentPlayer}
+  }).done(function(){
+    console.log("I'm here")
+  });
+
   changeState(this.id);
   // clickBox(this.id);
 });

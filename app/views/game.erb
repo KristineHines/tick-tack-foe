@@ -1,11 +1,15 @@
 <script>
+  var gameId = <%= @game.id %>
   var currentPlayer = <%= current_user.id %>
   var currentPlayer1 = <%= @game.player1.id %>
   var currentPlayer2 = <%= @game.player1.id %>
 </script>
 
 <h2>Player1: <%= @game.player1.name %></h2>
-<h2>Player2: <%= @game.player2.name %></h2>
+<h2>Player2: <% if @game.player2_id %>
+  <%= @game.player2.name %>
+  <% end %>
+</h2>
 
 <ul id="color_me">
   <li id="0"></li>

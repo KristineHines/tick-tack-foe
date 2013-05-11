@@ -1,5 +1,5 @@
 get "/game/create" do
-  @game = Game.create(player1_id: current_user.id)
+  @game = Game.create(:player1_id => current_user.id, :board => "---------")
 
   redirect "/game/#{@game.id}"
 
@@ -23,3 +23,30 @@ get "/game/:game_id" do
   erb :game
 end
 
+post "/game/:game_id/update" do 
+  @game = Game.find(params[:game_id].to_i)
+  # puts @game.inspect
+  # puts params.inspect
+  # updated_board = @game.board
+  if @game.player1_id == params[:player].to_i
+     # updated_board[params[:cell_to_change].to_i] = "X"
+     @game.board[params[:cell_to_change].to_i] = "X"
+# updated_board.insert(7,"x")    
+    # updated_board="----x----"
+  else
+    # updated_board[5] = "O"
+     # updated_board="o"
+  end
+   # p updated_board.class
+  # @game.board = updated_board
+  # @game.update_attributes(player2_id: 15)
+   @game.update_attributes(:board => @game.board)
+  # @game1=Game.create(:board => updated_board)
+  # @game1.update_attribute(:board, "This works?")
+  # binding.pry
+  p "hello"
+  p @game.inspect
+  @game.save!
+
+  p @game.board
+end
