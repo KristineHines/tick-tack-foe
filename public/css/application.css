@@ -97,3 +97,11 @@ form.quirks {
  header {
   text-align: center;
  }
+
+ .x {
+  background-color: red;
+ }
+
+ .o {
+  background-color: blue;
+ }
