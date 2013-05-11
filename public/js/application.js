@@ -18,6 +18,7 @@ $(document).ready(function () {
   });
 
 $("li").on('click', function(){
+  $('li').unbind();
   var cellId = this.id;
   console.log(cellId)
   console.log(currentPlayer)
@@ -28,6 +29,9 @@ $("li").on('click', function(){
   }).done(function(){
     console.log("I'm here")
   });
+
+  $('li.x').unbind();
+  $('li.o').unbind();
 
   changeState(this.id);
   // clickBox(this.id);

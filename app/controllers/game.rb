@@ -7,12 +7,16 @@ end
 
 get "/game/join/:game_id" do
   @game = Game.find(params[:game_id])
-  if current_user.id == @game.player1_id   
-    @error = "You can't play yourself foo"
-    erb :index
+  if current_user
+    if current_user.id == @game.player1_id   
+      @error = "You can't play yourself foo"
+      erb :index
+    else
+      @game.update_attributes(player2_id: current_user.id)
+      redirect "/game/#{@game.id}"
+    end
   else
-    @game.update_attributes(player2_id: current_user.id)
-    redirect "/game/#{@game.id}"
+    "You gotta sign in dude" 
   end
 end
 
@@ -25,28 +29,12 @@ end
 
 post "/game/:game_id/update" do 
   @game = Game.find(params[:game_id].to_i)
-  # puts @game.inspect
-  # puts params.inspect
-  # updated_board = @game.board
+  updated_board = @game.board
   if @game.player1_id == params[:player].to_i
-     # updated_board[params[:cell_to_change].to_i] = "X"
-     @game.board[params[:cell_to_change].to_i] = "X"
-# updated_board.insert(7,"x")    
-    # updated_board="----x----"
+     updated_board[params[:cell_to_change].to_i] = "X"
   else
-    # updated_board[5] = "O"
-     # updated_board="o"
+    updated_board[params[:cell_to_change].to_i] = "O"
   end
-   # p updated_board.class
-  # @game.board = updated_board
-  # @game.update_attributes(player2_id: 15)
-   @game.update_attributes(:board => @game.board)
-  # @game1=Game.create(:board => updated_board)
-  # @game1.update_attribute(:board, "This works?")
-  # binding.pry
-  p "hello"
-  p @game.inspect
-  @game.save!
-
-  p @game.board
+   @game.update_attributes(:board => updated_board)
+   200
 end
